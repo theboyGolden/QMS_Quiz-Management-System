@@ -25,34 +25,33 @@
             class="form-input"
           >
         </div>
-        
-        <button 
-          type="button" 
-          class="password-toggle"
-          @click="togglePassword"
-        >
-          <svg v-if="showPassword" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="password-toggle-text">{{ showPassword ? 'Hide' : 'Show' }}</span>
-        </button>
 
         <div class="input-group">
-          <label for="password">Password</label>
-          <div class="password-input-wrapper">
-            <input 
-              id="password"
-              v-model="password" 
-              :type="showPassword ? 'text' : 'password'" 
-              required
-              class="form-input"
+          <div class="password-label-wrapper">
+            <label for="password">Password</label>
+            <button 
+              type="button" 
+              class="password-toggle"
+              @click="togglePassword"
             >
+              <svg v-if="showPassword" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="password-toggle-text">{{ showPassword ? 'Hide' : 'Show' }}</span>
+            </button>
           </div>
+          <input 
+            id="password"
+            v-model="password" 
+            :type="showPassword ? 'text' : 'password'" 
+            required
+            class="form-input"
+          >
         </div>
 
         <div class="remember-me">
@@ -77,10 +76,10 @@
         <button type="submit" class="login-button">Log in</button>
 
         <div class="action-links">
-          <a href="#" class="action-link">Forget your password</a>
+          <a href="#" class="action-link">Forgot your password?</a>
           <p class="signup-text">
             Don't have an account? 
-            <a href="#" class="action-link">Sign up</a>
+            <router-link to="/signup" class="action-link">Sign up</router-link>
           </p>
         </div>
       </form>
@@ -202,7 +201,7 @@ export default {
 
 /* Login Container */
 .login-container {
-  max-width: 400px;
+  max-width: 480px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
@@ -247,15 +246,14 @@ export default {
   border-color: #007AFF;
 }
 
-.password-input-wrapper {
-  position: relative;
+.password-label-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
 .password-toggle {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
@@ -264,6 +262,7 @@ export default {
   gap: 0.25rem;
   color: #666;
   font-size: 0.8rem;
+  padding: 0;
 }
 
 .password-toggle:hover {
