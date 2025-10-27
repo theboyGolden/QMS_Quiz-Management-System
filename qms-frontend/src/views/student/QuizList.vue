@@ -1,5 +1,5 @@
 <template>
-  <AppLayout>
+  <ModernAppLayout>
     <div class="quiz-list">
       <div class="page-header">
         <h1>Available Quizzes</h1>
@@ -27,12 +27,12 @@
         <p>There are no quizzes available at the moment.</p>
       </div>
     </div>
-  </AppLayout>
+  </ModernAppLayout>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import AppLayout from '@/components/layout/AppLayout.vue'
+import ModernAppLayout from '@/components/layout/ModernAppLayout.vue'
 
 // Mock data - replace with API call
 const quizzes = ref([
@@ -67,7 +67,7 @@ export default {
 
 <style scoped>
 .quiz-list {
-  padding: 2rem;
+  max-width: 1200px;
 }
 
 .page-header {
@@ -76,41 +76,47 @@ export default {
 
 .page-header h1 {
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: #1f2937;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .page-header p {
   margin: 0;
-  color: #666;
+  color: #6b7280;
+  font-size: 1.1rem;
 }
 
 .quizzes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1.5rem;
 }
 
 .quiz-card {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
 }
 
 .quiz-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .quiz-card h3 {
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .quiz-card p {
   margin: 0 0 1rem 0;
-  color: #666;
+  color: #6b7280;
   line-height: 1.5;
 }
 
@@ -119,7 +125,7 @@ export default {
   gap: 1rem;
   margin-bottom: 1rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #6b7280;
 }
 
 .quiz-actions {
@@ -130,30 +136,37 @@ export default {
 .empty-state {
   text-align: center;
   padding: 3rem;
-  color: #666;
+  color: #6b7280;
 }
 
 .empty-state h3 {
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: #1f2937;
+  font-size: 1.5rem;
+}
+
+.empty-state p {
+  font-size: 1rem;
 }
 
 .btn {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  display: inline-block;
 }
 
 .btn-primary {
-  background-color: #42b883;
+  background-color: #ff6b35;
   color: white;
 }
 
 .btn-primary:hover {
-  background-color: #369870;
+  background-color: #e55a2b;
 }
 </style>

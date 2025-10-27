@@ -1,5 +1,5 @@
 <template>
-  <AppLayout>
+  <ModernAppLayout>
     <div class="profile">
       <div class="page-header">
         <h1>My Profile</h1>
@@ -42,14 +42,14 @@
         </div>
       </div>
     </div>
-  </AppLayout>
+  </ModernAppLayout>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
-import AppLayout from '@/components/layout/AppLayout.vue'
+import ModernAppLayout from '@/components/layout/ModernAppLayout.vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
@@ -78,7 +78,7 @@ export default {
 
 <style scoped>
 .profile {
-  padding: 2rem;
+  max-width: 800px;
 }
 
 .page-header {
@@ -87,12 +87,15 @@ export default {
 
 .page-header h1 {
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: #1f2937;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .page-header p {
   margin: 0;
-  color: #666;
+  color: #6b7280;
+  font-size: 1.1rem;
 }
 
 .profile-content {
@@ -101,9 +104,10 @@ export default {
 
 .profile-card {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
 }
 
 .profile-header {
@@ -111,14 +115,14 @@ export default {
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #42b883;
+  background-color: #ff6b35;
   color: white;
   display: flex;
   align-items: center;
@@ -130,20 +134,24 @@ export default {
 
 .user-info h2 {
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .user-info p {
   margin: 0 0 0.5rem 0;
-  color: #666;
+  color: #6b7280;
+  font-size: 1rem;
 }
 
 .role-badge {
-  background-color: #e8f5e8;
-  color: #42b883;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  background-color: #fef3c7;
+  color: #d97706;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
   font-size: 0.8rem;
+  font-weight: 500;
   text-transform: capitalize;
 }
 
@@ -156,7 +164,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 0;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .detail-item:last-child {
@@ -165,11 +173,11 @@ export default {
 
 .detail-item label {
   font-weight: 500;
-  color: #2c3e50;
+  color: #1f2937;
 }
 
 .detail-item span {
-  color: #666;
+  color: #6b7280;
 }
 
 .profile-actions {
@@ -179,20 +187,21 @@ export default {
 .btn {
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   display: inline-block;
 }
 
 .btn-danger {
-  background-color: #e74c3c;
+  background-color: #ef4444;
   color: white;
 }
 
 .btn-danger:hover {
-  background-color: #c0392b;
+  background-color: #dc2626;
 }
 </style>

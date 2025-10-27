@@ -1,5 +1,5 @@
 <template>
-  <AppLayout>
+  <ModernAppLayout>
     <div class="quiz-view">
       <div v-if="loading" class="loading">
         <p>Loading quiz...</p>
@@ -30,13 +30,13 @@
         </router-link>
       </div>
     </div>
-  </AppLayout>
+  </ModernAppLayout>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import AppLayout from '@/components/layout/AppLayout.vue'
+import ModernAppLayout from '@/components/layout/ModernAppLayout.vue'
 
 const route = useRoute()
 const loading = ref(true)
@@ -82,12 +82,13 @@ export default {
 
 <style scoped>
 .quiz-view {
-  padding: 2rem;
+  max-width: 800px;
 }
 
 .loading {
   text-align: center;
   padding: 3rem;
+  color: #6b7280;
 }
 
 .quiz-container {
@@ -97,28 +98,32 @@ export default {
 
 .quiz-header {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
   margin-bottom: 2rem;
 }
 
 .quiz-header h1 {
   margin: 0 0 1rem 0;
-  color: #2c3e50;
+  color: #1f2937;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .quiz-header p {
   margin: 0 0 1.5rem 0;
-  color: #666;
+  color: #6b7280;
   line-height: 1.5;
+  font-size: 1.1rem;
 }
 
 .quiz-info {
   display: flex;
   gap: 2rem;
   font-size: 0.9rem;
-  color: #666;
+  color: #6b7280;
 }
 
 .quiz-actions {
@@ -128,36 +133,42 @@ export default {
 .error-state {
   text-align: center;
   padding: 3rem;
-  color: #666;
+  color: #6b7280;
 }
 
 .error-state h3 {
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: #1f2937;
+  font-size: 1.5rem;
+}
+
+.error-state p {
+  font-size: 1rem;
 }
 
 .btn {
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   display: inline-block;
 }
 
 .btn-primary {
-  background-color: #42b883;
+  background-color: #ff6b35;
   color: white;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #369870;
+  background-color: #e55a2b;
 }
 
 .btn:disabled {
-  background-color: #ccc;
+  background-color: #d1d5db;
   cursor: not-allowed;
 }
 </style>
