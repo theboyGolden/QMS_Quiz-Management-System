@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="navbar-brand">
-      <router-link to="/" class="brand-link">
+      <router-link to="/dashboard" class="brand-link">
         QMS
       </router-link>
     </div>

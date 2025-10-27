@@ -143,7 +143,7 @@ const handleLogin = () => {
     email: email.value,
     role: 'student'
   })
-  router.push('/')
+  router.push('/dashboard')
 }
 
 const togglePassword = () => {
