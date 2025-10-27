@@ -12,7 +12,7 @@
         <h1 class="signup-title">Create an account</h1>
         <p class="login-prompt">
           Already have an account? 
-          <router-link to="/login" class="login-link">Log in</router-link>
+          <router-link to="/" class="login-link">Log in</router-link>
         </p>
       </div>
 
@@ -97,7 +97,7 @@
 
           <!-- Action Elements -->
           <div class="form-actions">
-            <router-link to="/login" class="login-instead-link">log in instead</router-link>
+            <router-link to="/" class="login-instead-link">log in instead</router-link>
             <button type="submit" class="signup-button">Create an account</button>
           </div>
         </form>
